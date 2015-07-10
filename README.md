@@ -8,7 +8,7 @@ Keboola Connection project backup to AWS S3 implemented as docker bundle.
 ```
 git clone https://github.com/keboola/kbc-project-backup.git
 cd kbc-project-backup
-curl https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.2.5.phar > ./sapi-client.phar
+curl https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.2.6.phar > ./sapi-client.phar
 composer install
 ```
 
