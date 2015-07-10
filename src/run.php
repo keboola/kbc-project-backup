@@ -40,7 +40,7 @@ putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
 putenv("AWS_SECRET_ACCESS_KEY={$parameters['awsSecretAccessKey']}");
 
 $return = null;
-passthru('php ' . __DIR__ . '/../sapi-client.phar --token=' .
+passthru('php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($token) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
