@@ -1,0 +1,6 @@
+vendor/
+./data
+.idea/
+build/
+sapi-client.phar
+composer.phar
