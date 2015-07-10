@@ -44,6 +44,7 @@ passthru('php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($token) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
+	' ' .
 	escapeshellarg($parameters['s3path'])
 , $return);
 
