@@ -3,4 +3,4 @@ parameters:
     "#awsSecretAccessKey": sadf
     s3bucket: test
     s3path: /
-    onlyStructure: true
+    onlyStructure: false

@@ -47,9 +47,10 @@ $cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($parameters['s3bucket']) .
 	' ' .
 	escapeshellarg($parameters['s3path']) .
-	($parameters['onlyStructure'] ? escapeshellarg('  --structure-only') : '')
+	($parameters['onlyStructure'] ? '  --structure-only' : '')
 ;
 
+echo $cmd;die;
 passthru($cmd, $return);
 
 exit($return);
