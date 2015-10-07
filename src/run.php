@@ -50,7 +50,6 @@ $cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	($parameters['onlyStructure'] ? '  --structure-only' : '')
 ;
 
-echo $cmd;die;
 passthru($cmd, $return);
 
 exit($return);
