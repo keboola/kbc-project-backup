@@ -1,5 +1,6 @@
 parameters:
     awsAccessKeyId: asdf
-    awsSecretAccessKey: sadf
+    "#awsSecretAccessKey": sadf
     s3bucket: test
     s3path: /
+    onlyStructure: true

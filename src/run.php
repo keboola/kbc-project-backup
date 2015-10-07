@@ -24,28 +24,32 @@ $resolver->setDefaults([
 $resolver
 	->setRequired('s3bucket')
 	->setRequired('awsAccessKeyId')
-	->setRequired('awsSecretAccessKey');
-
+	->setRequired('onlyStructure')
+	->setDefined(['awsSecretAccessKey', '#awsSecretAccessKey', 'onlyStructure']);
 
 $config = Yaml::parse(file_get_contents($arguments["data"] . "/config.yml"));
 
 try {
 	$parameters = $resolver->resolve($config['parameters']);
+	$awsSecretKey = $parameters['#awsSecretAccessKey'] ? $parameters['#awsSecretAccessKey'] : $parameters['awsSecretAccessKey'];
 } catch (\Exception $e) {
 	print $e->getMessage();
 	exit(1);
 }
 
 putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
-putenv("AWS_SECRET_ACCESS_KEY={$parameters['awsSecretAccessKey']}");
+putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 
 $return = null;
-passthru('php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
+$cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($token) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
 	' ' .
-	escapeshellarg($parameters['s3path'])
-, $return);
+	escapeshellarg($parameters['s3path']) .
+	($parameters['onlyStructure'] ? escapeshellarg('  --structure-only') : '')
+;
+
+passthru($cmd, $return);
 
 exit($return);
