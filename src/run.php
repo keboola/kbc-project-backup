@@ -25,6 +25,7 @@ $resolver
 	->setRequired('s3bucket')
 	->setRequired('awsAccessKeyId')
 	->setRequired('onlyStructure')
+	->setRequired('s3region')
 	->setDefined(['awsSecretAccessKey', '#awsSecretAccessKey', 'onlyStructure']);
 
 $config = Yaml::parse(file_get_contents($arguments["data"] . "/config.yml"));
@@ -47,6 +48,8 @@ $cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($parameters['s3bucket']) .
 	' ' .
 	escapeshellarg($parameters['s3path']) .
+	' ' .
+	escapeshellarg($parameters['s3region']) . 
 	($parameters['onlyStructure'] ? '  --structure-only' : '')
 ;
 
