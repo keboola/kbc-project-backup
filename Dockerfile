@@ -1,4 +1,4 @@
-FROM quay.io/keboola/docker-base-php56
+FROM quay.io/keboola/docker-base-php56:0.0.2
 MAINTAINER Martin Halamicek <martin.halamicek@keboola.com>
 
 WORKDIR /home
