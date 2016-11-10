@@ -2,18 +2,14 @@
 
 Keboola Connection project backup to AWS S3 implemented as docker bundle.
 
-
 ## Install & build
 
 ```
 git clone https://github.com/keboola/kbc-project-backup.git
 cd kbc-project-backup
-curl https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.2.10.phar > ./sapi-client.phar
+curl https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.5.0.phar > ./sapi-client.phar
 composer install
 ```
-
-
-
 
 ## Run
 ```
@@ -27,9 +23,7 @@ Where `/data` goes to your data folder.
 
 Data directory must follow conventions defined in [Keboola Docker Bundle repository](https://github.com/keboola/docker-bundle).
 
-
 ## Configuration
-
 
 - YAML configuration stored in `data/config.yml`
 - KBC_TOKEN environment variable is required
