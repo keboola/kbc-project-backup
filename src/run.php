@@ -50,7 +50,7 @@ putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 $return = null;
 $cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($token) .
-    ' --url = ' .
+    ' --url=' .
     escapeshellarg($url) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
