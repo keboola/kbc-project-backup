@@ -17,6 +17,12 @@ if (!$token) {
 	exit(1);
 }
 
+$url = getenv('KBC_URL');
+if (!$url) {
+    print "KBC_URL must be set";
+    exit(1);
+}
+
 $resolver = new OptionsResolver();
 $resolver->setDefaults([
 	's3path' => '/'
@@ -44,6 +50,8 @@ putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 $return = null;
 $cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
 	escapeshellarg($token) .
+    ' --url = ' .
+    escapeshellarg($url) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
 	' ' .
