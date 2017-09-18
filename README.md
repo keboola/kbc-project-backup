@@ -27,14 +27,19 @@ Data directory must follow conventions defined in [Keboola Docker Bundle reposit
 
 AWS credentials with permission to write S3 bucket are required. You can create it using Cloudformation template [s3.template.json](https://github.com/keboola/kbc-project-backup/blob/master/s3.template.json).
 
-YAML configuration stored in `data/config.yml`
+JSON configuration stored in `data/config.json`
 
-```
-parameters:
-  awsAccessKeyId: asdf
-  "#awsSecretAccessKey": sadf
-  s3bucket: test
-  s3path: /
+```json
+{
+  "parameters": {
+    "awsAccessKeyId": "asdf",
+    "#awsSecretAccessKey": "sadf",
+    "s3bucket": "test",
+    "s3region": "us-east-1",
+    "s3path": "/",
+    "onlyStructure": false
+  }
+}
 ```
 
 ### Environment variables
@@ -42,12 +47,17 @@ parameters:
 - `KBC_TOKEN` - Project Storage API token
 
 ### Sample configuration
-Mapped to `/data/config.yml`
+Mapped to `/data/config.json`
 
-```
-parameters:
-  awsAccessKeyId: asdf
-  "#awsSecretAccessKey": sadf
-  s3bucket: test
-  s3path: /
+```json
+{
+  "parameters": {
+    "awsAccessKeyId": "asdf",
+    "#awsSecretAccessKey": "sadf",
+    "s3bucket": "test",
+    "s3region": "us-east-1",
+    "s3path": "/",
+    "onlyStructure": false
+  }
+}
 ```

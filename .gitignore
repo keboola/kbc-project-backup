@@ -1,6 +1,7 @@
 vendor/
-./data
-.idea/
-build/
 sapi-client.phar
 composer.phar
+.env
+.idea
+.DS_Store
+tests/data/

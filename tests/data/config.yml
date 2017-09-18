@@ -1,7 +1,0 @@
-parameters:
-    awsAccessKeyId: asdf
-    "#awsSecretAccessKey": sadf
-    s3bucket: test
-    s3region: "us-east-1"
-    s3path: /
-    onlyStructure: false
