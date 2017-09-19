@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/../vendor/autoload.php");
 
-print "Setting up fixtures.\n";
+print "Setting up fixtures\n";
 
 $client = new \Keboola\StorageApi\Client([
     "token" => getenv("KBC_TOKEN"),
@@ -26,7 +26,7 @@ foreach ($componentsList as $component) {
     }
 }
 
-print "Storage purged.\n";
+print "Storage purged\n";
 
 // purge S3
 $s3Client = new \Aws\S3\S3Client([
@@ -50,13 +50,13 @@ if (count($keys) > 0) {
     ]);
 }
 
-print "AWS S3 purged.\n";
+print "AWS S3 purged\n";
 
 // create bucket and table
 $client->createBucket("main", \Keboola\StorageApi\Client::STAGE_IN);
 $client->createTableAsync("in.c-main", "sample", new \Keboola\Csv\CsvFile(__DIR__ . "/sample.csv"));
 
-print "Created table and bucket.\n";
+print "Created table and bucket\n";
 
 // create config
 $components->addConfiguration(
@@ -66,4 +66,4 @@ $components->addConfiguration(
     ->setName("test")
 );
 
-print "Created config.\n";
+print "Created config\n";

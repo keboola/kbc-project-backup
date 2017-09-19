@@ -12,5 +12,9 @@ $config = [
   ]
 ];
 
+if (!file_exists(__DIR__ . "/data/")) {
+    mkdir(__DIR__ . "/data/", 0777, true);
+}
 $encode = new \Symfony\Component\Serializer\Encoder\JsonEncode();
 file_put_contents(__DIR__ . "/data/config.json", $encode->encode($config, \Symfony\Component\Serializer\Encoder\JsonEncoder::FORMAT));
+
