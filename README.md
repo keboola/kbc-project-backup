@@ -27,7 +27,7 @@ AWS_S3_PATH=
 ```
 
 - `KBC_*` variables are from the project you want to backup
-- `AWS_*` variables are from the S3 bucket the backup will be stored to; use [s3.template.json](s3.template.json) CloudFormation stack template to create all required AWS resources
+- `AWS_*` variables are from the S3 bucket the backup will be stored to; use [aws-cf-template.json](./aws-cf-template.json) CloudFormation stack template to create all required AWS resources
 
 Then run this command to run the backup 
 
