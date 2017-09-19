@@ -7,7 +7,7 @@ services:
 
 before_install:
   - docker-compose -v
-  - docker-compose build
+  - travis_wait 30 docker-compose build
 
 script:
   - docker-compose run --rm tests
