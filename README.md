@@ -1,53 +1,43 @@
 # Keboola Connection Project Backup
 
-Keboola Connection project backup to AWS S3 implemented as docker bundle.
+[![Build Status](https://travis-ci.org/keboola/kbc-project-backup.svg?branch=master)](https://travis-ci.org/keboola/kbc-project-backup)
+
+Keboola Connection project backup to AWS S3 implemented as a Docker container.
 
 ## Install & build
 
 ```
 git clone https://github.com/keboola/kbc-project-backup.git
 cd kbc-project-backup
-curl https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.5.0.phar > ./sapi-client.phar
-composer install
+docker-compose build
 ```
+
 
 ## Run
-```
-php ./src/run.php --data=./tests/data
-```
-
-Where `/data` goes to your data folder.
-
-
-## Data directory
-
-Data directory must follow conventions defined in [Keboola Docker Bundle repository](https://github.com/keboola/docker-bundle).
-
-## Configuration
-
-AWS credentials with permission to write S3 bucket are required. You can create it using Cloudformation template [s3.template.json](https://github.com/keboola/kbc-project-backup/blob/master/s3.template.json).
-
-YAML configuration stored in `data/config.yml`
+Create `.env` file from this template
 
 ```
-parameters:
-  awsAccessKeyId: asdf
-  "#awsSecretAccessKey": sadf
-  s3bucket: test
-  s3path: /
+KBC_TOKEN=
+KBC_URL=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_S3_BUCKET=
+AWS_REGION=
+AWS_S3_PATH=
 ```
 
-### Environment variables
-- `KBC_URL` - URL of keboola connection stack eq. `https://connection.keboola.com`
-- `KBC_TOKEN` - Project Storage API token
+- `KBC_*` variables are from the project you want to backup
+- `AWS_*` variables are from the S3 bucket the backup will be stored to; use [s3.template.json](s3.template.json) CloudFormation stack template to create all required AWS resources
 
-### Sample configuration
-Mapped to `/data/config.yml`
+Then run this command to run the backup 
 
 ```
-parameters:
-  awsAccessKeyId: asdf
-  "#awsSecretAccessKey": sadf
-  s3bucket: test
-  s3path: /
+docker-compose run app
+```
+
+## Development
+
+```
+docker-compose run tests
+
 ```

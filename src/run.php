@@ -1,6 +1,5 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 require_once(dirname(__FILE__) . "/../vendor/autoload.php");
@@ -34,7 +33,11 @@ $resolver
 	->setRequired('s3region')
 	->setDefined(['awsSecretAccessKey', '#awsSecretAccessKey', 'onlyStructure']);
 
-$config = Yaml::parse(file_get_contents($arguments["data"] . "/config.yml"));
+$jsonDecode = new \Symfony\Component\Serializer\Encoder\JsonDecode(true);
+$config = $jsonDecode->decode(
+    file_get_contents($arguments['data'] . '/config.json'),
+    \Symfony\Component\Serializer\Encoder\JsonEncoder::FORMAT
+);
 
 try {
 	$parameters = $resolver->resolve($config['parameters']);
@@ -48,7 +51,7 @@ putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
 putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 
 $return = null;
-$cmd = 'php ' . __DIR__ . '/../sapi-client.phar --no-ansi --token=' .
+$cmd = 'sapi-client --no-ansi --token=' .
 	escapeshellarg($token) .
     ' --url=' .
     escapeshellarg($url) .
