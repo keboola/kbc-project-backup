@@ -7,10 +7,10 @@ services:
 
 before_install:
   - docker-compose -v
-  - travis_wait 30 docker-compose build
+  - docker-compose build
 
 script:
-  - docker-compose run --rm tests
+  - travis_wait docker-compose run --rm tests
 
 deploy:
   provider: script
