@@ -1,6 +1,5 @@
 #!/bin/bash
-echo "Running tests"
-#set -e
+set -e
 
 composer install --dev
 
