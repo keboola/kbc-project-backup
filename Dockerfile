@@ -18,4 +18,4 @@ COPY . /home/
 
 RUN composer install --no-interaction
 
-CMD php /home/run.php --data=/data
+CMD php /home/src/run.php --data=/data

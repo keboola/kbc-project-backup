@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1e74210386fd1b32c13854acc2091a8",
-    "content-hash": "84958f57ac8e8d11788dcdc5394e04f5",
+    "content-hash": "6a9b48fef853b6b812349435d1b79bff",
     "packages": [
         {
             "name": "ircmaxell/password-compat",
@@ -47,7 +46,7 @@
                 "hashing",
                 "password"
             ],
-            "time": "2014-11-20 16:49:30"
+            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -101,7 +100,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-04-12 14:07:15"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/polyfill-php55",
@@ -157,7 +156,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14 15:44:48"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -221,22 +220,22 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-03 14:09:54"
+            "time": "2017-07-03T14:09:54+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.9",
+            "version": "3.36.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7b89fa65cccb966da1599b715dcea8c09eafc175"
+                "reference": "f133e6583f67c2ffe490527dc741ec9ad32c4325"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7b89fa65cccb966da1599b715dcea8c09eafc175",
-                "reference": "7b89fa65cccb966da1599b715dcea8c09eafc175",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f133e6583f67c2ffe490527dc741ec9ad32c4325",
+                "reference": "f133e6583f67c2ffe490527dc741ec9ad32c4325",
                 "shasum": ""
             },
             "require": {
@@ -303,7 +302,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-15 19:12:04"
+            "time": "2017-09-18T22:37:10+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -368,7 +367,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22 18:50:49"
+            "time": "2017-06-22T18:50:49+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -419,7 +418,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20 10:07:11"
+            "time": "2016-12-20T10:07:11+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -484,7 +483,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20 17:10:46"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "keboola/csv",
@@ -515,7 +514,7 @@
             ],
             "description": "Keboola CSV reader and writer",
             "homepage": "http://keboola.com",
-            "time": "2016-04-21 20:46:22"
+            "time": "2016-04-21T20:46:22+00:00"
         },
         {
             "name": "keboola/storage-api-client",
@@ -558,7 +557,7 @@
             ],
             "description": "Keboola Storage API PHP CLient",
             "homepage": "http://keboola.com",
-            "time": "2017-09-11 11:38:51"
+            "time": "2017-09-11T11:38:51+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -613,7 +612,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2016-12-03 22:08:25"
+            "time": "2016-12-03T22:08:25+00:00"
         },
         {
             "name": "psr/http-message",
@@ -663,7 +662,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -712,7 +711,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29 21:54:42"
+            "time": "2017-07-29T21:54:42+00:00"
         },
         {
             "name": "symfony/process",
@@ -761,7 +760,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29 21:54:42"
+            "time": "2017-07-29T21:54:42+00:00"
         }
     ],
     "aliases": [],
@@ -770,7 +769,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=7.1"
     },
     "platform-dev": []
 }
