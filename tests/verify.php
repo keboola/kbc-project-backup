@@ -37,11 +37,11 @@ $keys = array_map(function ($key) {
 }, $objects->toArray()['Contents']);
 
 $expected = [
-    "backup/buckets.json",
-    "backup/tables.json",
-    "backup/configurations.json",
-    "backup/configurations/transformation/" . $configId . ".json",
-    "backup/in/c-main/sample.part_0.csv.gz"
+    getenv("AWS_S3_PATH") . "/buckets.json",
+    getenv("AWS_S3_PATH") . "/tables.json",
+    getenv("AWS_S3_PATH") . "/configurations.json",
+    getenv("AWS_S3_PATH") . "/configurations/transformation/" . $configId . ".json",
+    getenv("AWS_S3_PATH") . "/in/c-main/sample.part_0.csv.gz"
 ];
 if (count(array_diff($expected, $keys)) > 0 or count(array_diff($keys, $expected))) {
     var_export($expected);
