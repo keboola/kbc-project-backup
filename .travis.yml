@@ -8,6 +8,7 @@ services:
 before_install:
   - docker-compose -v
   - docker-compose build
+  - docker images
 
 script:
   - travis_wait docker-compose run --rm tests
