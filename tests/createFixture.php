@@ -4,7 +4,6 @@ require_once(__DIR__ . "/../vendor/autoload.php");
 $client = new \Keboola\StorageApi\Client([
     "token" => getenv("KBC_TOKEN"),
     "url" => getenv("KBC_URL")
-
 ]);
 
 // delete buckets
