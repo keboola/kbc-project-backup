@@ -49,3 +49,5 @@ if (count(array_diff($expected, $keys)) > 0 or count(array_diff($keys, $expected
     var_export($keys);
     exit(1);
 }
+
+print "Backup verified\n";
