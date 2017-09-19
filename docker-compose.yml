@@ -18,7 +18,7 @@ services:
     command: sh -c 'php /home/tests/createConfig.php && php /home/src/run.php --data=/home/tests/data'
   tests:
     image: keboola/kbc-project-backup
-    command: echo "test" && /home/tests.sh
+    command: /home/tests.sh
     volumes:
       - ./:/home
     environment:
