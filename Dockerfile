@@ -8,7 +8,7 @@ RUN apt-get update -q \
 
 WORKDIR /home
 
-RUN curl --fail https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.8.1.phar > /usr/local/bin/sapi-client \
+RUN curl --fail https://s3.amazonaws.com/keboola-storage-api-cli/builds/sapi-client.0.9.0.phar > /usr/local/bin/sapi-client \
   && chmod a+x /usr/local/bin/sapi-client
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer
