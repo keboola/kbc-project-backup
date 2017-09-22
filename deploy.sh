@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
 docker pull quay.io/keboola/developer-portal-cli-v2:latest
 export REPOSITORY=`docker run --rm  \

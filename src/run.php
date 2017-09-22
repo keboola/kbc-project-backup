@@ -51,14 +51,14 @@ putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
 putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 
 $return = null;
-$cmd = 'sapi-client --no-ansi --token=' .
+$cmd = '/home/storage-api-cli/bin/cli --no-ansi --token=' .
 	escapeshellarg($token) .
     ' --url=' .
     escapeshellarg($url) .
 	' backup-project ' .
 	escapeshellarg($parameters['s3bucket']) .
 	' ' .
-	escapeshellarg($parameters['s3path']) .
+	escapeshellarg($parameters['s3path'] == '' ? '/' : $parameters['s3path']) .
 	' ' .
 	escapeshellarg($parameters['s3region']) . 
 	($parameters['onlyStructure'] ? '  --structure-only' : '') .
