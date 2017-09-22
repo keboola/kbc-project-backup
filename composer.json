@@ -2,12 +2,19 @@
     "name": "keboola/kbc-project-backup",
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/keboola/storage-api-cli"
+        }
+    ],
     "require": {
         "php": ">=7.1",
         "symfony/serializer": "~2.7",
-        "symfony/options-resolver": "~2.7"
+        "symfony/options-resolver": "~2.7",
+        "keboola/storage-api-cli": "^1.0"
     },
     "require-dev": {
-        "keboola/storage-api-client": "^7.1"
+        "keboola/storage-api-client": "^6.5"
     }
 }

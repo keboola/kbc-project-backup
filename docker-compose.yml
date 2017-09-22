@@ -14,13 +14,13 @@ services:
       - AWS_S3_BUCKET
       - AWS_REGION
       - AWS_S3_PATH
-    command: sh -c 'php /home/kbc-project-backup/tests/createConfig.php && php /home/kbc-project-backup/src/run.php --data=/home/kbc-project-backup/tests/data'
+    command: sh -c 'php /home/tests/createConfig.php && php /home/src/run.php --data=/home/tests/data'
 
   tests:
     image: keboola/kbc-project-backup
-    command: /home/kbc-project-backup/tests.sh
+    command: /home/tests.sh
     volumes:
-      - ./:/home/kbc-project-backup
+      - ./:/home
     environment:
       - KBC_TOKEN
       - KBC_URL

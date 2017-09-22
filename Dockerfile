@@ -9,16 +9,11 @@ RUN apk add --no-cache wget git unzip gzip
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer
 
-WORKDIR /home/storage-api-cli
-
-RUN git clone -b 1.0.0 https://github.com/keboola/storage-api-cli /home/storage-api-cli \
-    && composer install --no-interaction
-
-WORKDIR /home/kbc-project-backup
+WORKDIR /home
 
 # Initialize
-COPY . /home/kbc-project-backup
+COPY . /home
 
 RUN composer install --no-interaction
 
-CMD php /home/kbc-project-backup/src/run.php --data=/data
+CMD php /home/src/run.php --data=/data

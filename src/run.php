@@ -51,7 +51,7 @@ putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
 putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 
 $return = null;
-$cmd = '/home/storage-api-cli/bin/cli --no-ansi --token=' .
+$cmd = '/home/vendor/keboola/storage-api-cli/bin/cli --no-ansi --token=' .
 	escapeshellarg($token) .
     ' --url=' .
     escapeshellarg($url) .
