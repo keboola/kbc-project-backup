@@ -1,6 +1,7 @@
 <?php
-
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Keboola\StorageApi\Cli\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
 
 require_once(dirname(__FILE__) . "/../vendor/autoload.php");
 
@@ -50,21 +51,22 @@ try {
 putenv("AWS_ACCESS_KEY_ID={$parameters['awsAccessKeyId']}");
 putenv("AWS_SECRET_ACCESS_KEY={$awsSecretKey}");
 
-$return = null;
-$cmd = '/home/vendor/keboola/storage-api-cli/bin/cli --no-ansi --token=' .
-	escapeshellarg($token) .
-    ' --url=' .
-    escapeshellarg($url) .
-	' backup-project ' .
-	escapeshellarg($parameters['s3bucket']) .
-	' ' .
-	escapeshellarg($parameters['s3path'] == '' ? '/' : $parameters['s3path']) .
-	' ' .
-	escapeshellarg($parameters['s3region']) . 
-	($parameters['onlyStructure'] ? '  --structure-only' : '') .
-	' --include-versions '
-;
+$app = new Application();
 
-passthru($cmd, $return);
+$newOptions = [];
+if (!in_array('--no-ansi', $_SERVER['argv'])) {
+    $newOptions[] = '--ansi';
+}
+$newOptions[] = '--token=' . $token;
+$newOptions[] = '--url=' . $url;
+$newOptions[] = 'backup-project';
+$newOptions[] = $parameters['s3bucket'];
+$newOptions[] = $parameters['s3path'] == '' ? '/' : $parameters['s3path'];
+$newOptions[] = $parameters['s3region'];
+$newOptions[] = '--include-versions';
+if ($parameters['onlyStructure']) {
+    $newOptions[] = '--structure-only';
+}
 
-exit($return);
+$input = new ArgvInput($newOptions);
+$app->run($input);
