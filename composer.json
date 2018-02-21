@@ -15,6 +15,6 @@
         "keboola/storage-api-cli": "^1.0"
     },
     "require-dev": {
-        "keboola/storage-api-client": "^6.5"
+        "keboola/storage-api-client": "^8.0"
     }
 }
