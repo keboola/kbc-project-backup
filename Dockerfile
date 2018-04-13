@@ -6,6 +6,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # Deps
 RUN apk add --no-cache wget git unzip gzip
 
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer
 
