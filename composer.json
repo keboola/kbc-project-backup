@@ -12,9 +12,9 @@
         "php": ">=7.1",
         "symfony/serializer": "~2.7",
         "symfony/options-resolver": "~2.7",
-        "keboola/storage-api-cli": "^1.0"
+        "keboola/storage-api-cli": "^1.1"
     },
     "require-dev": {
-        "keboola/storage-api-client": "^8.0"
+        "keboola/storage-api-client": "^10.20"
     }
 }
