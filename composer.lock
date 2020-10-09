@@ -404,16 +404,16 @@
         },
         {
             "name": "keboola/storage-api-cli",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/keboola/storage-api-cli.git",
-                "reference": "88c37c7fa6d569c32ec8fa2d7a29540428bc45a0"
+                "reference": "78e073b467cd4667f3c5936159916eefb79b5e86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/keboola/storage-api-cli/zipball/88c37c7fa6d569c32ec8fa2d7a29540428bc45a0",
-                "reference": "88c37c7fa6d569c32ec8fa2d7a29540428bc45a0",
+                "url": "https://api.github.com/repos/keboola/storage-api-cli/zipball/78e073b467cd4667f3c5936159916eefb79b5e86",
+                "reference": "78e073b467cd4667f3c5936159916eefb79b5e86",
                 "shasum": ""
             },
             "require": {
@@ -474,10 +474,10 @@
             ],
             "description": "Keboola Storage API command line interface",
             "support": {
-                "source": "https://github.com/keboola/storage-api-cli/tree/1.1.0",
+                "source": "https://github.com/keboola/storage-api-cli/tree/1.1.1",
                 "issues": "https://github.com/keboola/storage-api-cli/issues"
             },
-            "time": "2020-10-08T14:15:12+00:00"
+            "time": "2020-10-09T07:58:15+00:00"
         },
         {
             "name": "keboola/storage-api-client",
