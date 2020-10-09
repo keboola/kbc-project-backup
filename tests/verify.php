@@ -1,4 +1,7 @@
 <?php
+
+use Keboola\StorageApi\Options\Components\ListComponentConfigurationsOptions;
+
 require_once(__DIR__ . "/../vendor/autoload.php");
 
 // get transformation config id
@@ -11,13 +14,12 @@ $client = new \Keboola\StorageApi\Client([
 
 // delete configs
 $components = new \Keboola\StorageApi\Components($client);
-$componentsList = $components->listComponents(
-    (new \Keboola\StorageApi\Options\Components\ListComponentsOptions())
-    ->setInclude(["configuration"])
-    ->setComponentType("transformation")
+$componentsConfigurationList = $components->listComponentConfigurations(
+    (new ListComponentConfigurationsOptions())
+    ->setComponentId('transformation')
 );
 
-$configId = $componentsList[0]["configurations"][0]["id"];
+$configId = $componentsConfigurationList[0]["id"];
 
 // purge S3
 $s3Client = new \Aws\S3\S3Client([
