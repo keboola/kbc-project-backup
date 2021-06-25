@@ -1,11 +1,9 @@
 version: "2"
-services:
 
-  app:
+services:
+  app: &app
     build: .
     image: keboola/kbc-project-backup
-    tty: true
-    stdin_open: true
     environment:
       - KBC_TOKEN
       - KBC_URL
@@ -14,18 +12,9 @@ services:
       - AWS_S3_BUCKET
       - AWS_REGION
       - AWS_S3_PATH
-    command: sh -c 'php /home/tests/createConfig.php && php /home/src/run.php --data=/home/tests/data'
 
   tests:
-    image: keboola/kbc-project-backup
-    command: /home/tests.sh
+    <<: *app
     volumes:
-      - ./:/home
-    environment:
-      - KBC_TOKEN
-      - KBC_URL
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-      - AWS_S3_BUCKET
-      - AWS_REGION
-      - AWS_S3_PATH
+      - ./data:/data
+      - ./:/code

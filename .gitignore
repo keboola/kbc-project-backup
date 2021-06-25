@@ -1,4 +1,5 @@
 vendor/
+/data
 sapi-client.phar
 composer.phar
 .env
