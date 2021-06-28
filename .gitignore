@@ -6,3 +6,4 @@ composer.phar
 .idea
 .DS_Store
 tests/data/
+.phpunit.result.cache

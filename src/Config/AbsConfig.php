@@ -25,9 +25,4 @@ class AbsConfig extends Config
     {
         return $this->getValue(['parameters', '#accountKey']);
     }
-
-    public function getOnlyStructure(): bool
-    {
-        return $this->getValue(['parameters', 'onlyStructure']);
-    }
 }

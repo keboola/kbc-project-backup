@@ -30,4 +30,9 @@ class Config extends BaseConfig
         }
         return $token;
     }
+
+    public function getOnlyStructure(): bool
+    {
+        return $this->getValue(['parameters', 'onlyStructure']);
+    }
 }

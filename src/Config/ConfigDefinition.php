@@ -35,11 +35,12 @@ class ConfigDefinition extends BaseConfigDefinition
                         }
 
                         //BC break
-                        if (empty($v['#awsSecretAccessKey']) && empty('awsSecretAccessKey')) {
+                        if (empty($v['#awsSecretAccessKey']) && empty($v['awsSecretAccessKey'])) {
                             throw new InvalidConfigurationException(
                                 'Missing required parameter "#awsSecretAccessKey".'
                             );
                         }
+
                         break;
                     case Config::STORAGE_BACKEND_ABS:
                         foreach (['absRegion', 'accountName', '#accountKey', 'container'] as $item) {
@@ -59,7 +60,6 @@ class ConfigDefinition extends BaseConfigDefinition
             ->children()
                 ->scalarNode('storageBackendType')
                     ->defaultValue(Config::STORAGE_BACKEND_S3)
-                    ->isRequired()
                 ->end()
                 ->booleanNode('onlyStructure')->defaultFalse()->end()
                 ->scalarNode('s3bucket')->end()

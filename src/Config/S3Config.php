@@ -23,11 +23,6 @@ class S3Config extends Config
         return $this->getValue(['parameters', 's3region']);
     }
 
-    public function getOnlyStructure(): bool
-    {
-        return $this->getValue(['parameters', 'onlyStructure']);
-    }
-
     public function getAwsAccessKeyId(): string
     {
         return $this->getValue(['parameters', 'awsAccessKeyId']);
