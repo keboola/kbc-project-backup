@@ -1,7 +1,9 @@
 vendor/
+/data
 sapi-client.phar
 composer.phar
 .env
 .idea
 .DS_Store
 tests/data/
+.phpunit.result.cache

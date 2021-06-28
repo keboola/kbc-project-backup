@@ -3,7 +3,7 @@
   "Description": "Keboola Connection - Project Data Takeout S3 bucket and user",
   "Resources": {
     "S3FilesBucket": {
-      "Type": "AWS::S3::Bucket",
+      "Type": "AWS::S3::Bucket"
     },
     "User": {
       "Type": "AWS::IAM::User",
