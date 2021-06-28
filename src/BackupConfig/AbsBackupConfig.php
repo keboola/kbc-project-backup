@@ -10,7 +10,7 @@ use Keboola\BackupProject\Config\Config;
 
 class AbsBackupConfig extends BackupConfig
 {
-    public function getCommandConfig(): array
+    public function getConfig(): array
     {
         if (!($this->config instanceof AbsConfig)) {
             throw new Exception();
@@ -19,7 +19,7 @@ class AbsBackupConfig extends BackupConfig
         $this->storageBackend = Config::STORAGE_BACKEND_ABS;
 
         return array_merge(
-            parent::getCommandConfig(),
+            parent::getConfig(),
             [
                 'accountName' => $this->config->getAccountName(),
                 '#accountKey' => $this->config->getAccountKey(),

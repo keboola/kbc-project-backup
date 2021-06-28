@@ -10,7 +10,7 @@ use Keboola\BackupProject\Config\S3Config;
 
 class S3BackupConfig extends BackupConfig
 {
-    public function getCommandConfig(): array
+    public function getConfig(): array
     {
         if (!($this->config instanceof S3Config)) {
             throw new Exception();
@@ -19,7 +19,7 @@ class S3BackupConfig extends BackupConfig
         $this->storageBackend = Config::STORAGE_BACKEND_S3;
 
         return array_merge(
-            parent::getCommandConfig(),
+            parent::getConfig(),
             [
                 'access_key_id' => $this->config->getAwsAccessKeyId(),
                 '#secret_access_key' => $this->config->getAwsSecretKey(),

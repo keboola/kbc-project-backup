@@ -17,7 +17,7 @@ abstract class BackupConfig
         $this->config = $config;
     }
 
-    public function getCommandConfig(): array
+    public function getConfig(): array
     {
         return [
             'backupId' => '',

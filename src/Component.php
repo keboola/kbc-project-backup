@@ -32,7 +32,7 @@ class Component extends BaseComponent
         $backendFactory = new BackupConfigFactory($this->getConfig());
         $backendStorage = $backendFactory->getBackupConfig();
 
-        $jobConfig = $backendStorage->getCommandConfig();
+        $jobConfig = $backendStorage->getConfig();
 
         $this->runJob($syrupClient, $jobConfig);
     }
