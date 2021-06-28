@@ -19,7 +19,7 @@ class S3BackendStorage extends BackendStorage
         return [
             'access_key_id' => $this->config->getAwsAccessKeyId(),
             '#secret_access_key' => $this->config->getAwsSecretKey(),
-            'region' => $this->config->getS3region(),
+            'region' => $this->config->getRegion(),
             '#bucket' => $this->config->getS3bucket(),
             'backupPath' => $this->config->getS3path(),
 

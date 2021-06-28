@@ -12,38 +12,29 @@ use Keboola\BackupProject\Config\ConfigDefinition;
 use Keboola\BackupProject\Config\S3Config;
 use Keboola\Component\BaseComponent;
 use Keboola\Component\UserException;
+use Keboola\StorageApi\Client;
 use Keboola\StorageApi\Client as StorageClient;
+use Keboola\Syrup\Client as SyrupClient;
 
 class Component extends BaseComponent
 {
+    private const SYRUP_SERVICE_ID = 'syrup';
+
     protected function run(): void
     {
         $backendFactory = new BackendStorageFactory($this->getConfig());
         $backendStorage = $backendFactory->getBackendStorage();
-
-        $jobConfig = $backendStorage->getCommandConfig();
 
         $sapiClient = new StorageClient([
             'url' => $this->getConfig()->getKbcUrl(),
             'token' => $this->getConfig()->getKbcToken(),
         ]);
 
-        $dockerRunner = Utils::createDockerRunnerClientFromStorageClient($sapiClient);
+        $syrupClient = $this->createSyrupClientFromStorageClient($sapiClient);
 
-        $this->getLogger()->info('Creating source project snapshot');
-        $job = $dockerRunner->runJob(
-            'keboola.project-backup',
-            [
-                'configData' => [
-                    'parameters' => $jobConfig,
-                ],
-                'tag' => 'TEST-COM-882-3',
-            ]
-        );
-        if ($job['status'] !== 'success') {
-            throw new Exception('Project snapshot create error: ' . $job['result']['message']);
-        }
-        $this->getLogger()->info('Source project snapshot created');
+        $jobConfig = $backendStorage->getCommandConfig();
+
+        $this->runJob($syrupClient, $jobConfig);
     }
 
     public function getConfig(): Config
@@ -72,5 +63,50 @@ class Component extends BaseComponent
     protected function getConfigDefinitionClass(): string
     {
         return ConfigDefinition::class;
+    }
+
+    public function createSyrupClientFromStorageClient(Client $sapiClient): SyrupClient
+    {
+        $services = $sapiClient->indexAction()['services'];
+        $baseUrl = self::getKeboolaServiceUrl(
+            $services,
+            self::SYRUP_SERVICE_ID
+        );
+
+        return new SyrupClient([
+            'url' => $baseUrl,
+            'token' => $sapiClient->getTokenString(),
+            'super' => 'docker',
+            'runId' => $sapiClient->getRunId(),
+        ]);
+    }
+
+    private function getKeboolaServiceUrl(array $services, string $serviceId): string
+    {
+        $foundServices = array_values(array_filter($services, function ($service) use ($serviceId) {
+            return $service['id'] === $serviceId;
+        }));
+        if (empty($foundServices)) {
+            throw new Exception(sprintf('%s service not found', $serviceId));
+        }
+        return $foundServices[0]['url'];
+    }
+
+    private function runJob(SyrupClient $syrupClient, array $jobConfig): void
+    {
+        $this->getLogger()->info('Creating source project snapshot');
+        $job = $syrupClient->runJob(
+            'keboola.project-backup',
+            [
+                'configData' => [
+                    'parameters' => $jobConfig,
+                ],
+                'tag' => 'TEST-COM-882-3',
+            ]
+        );
+        if ($job['status'] !== 'success') {
+            throw new Exception('Project snapshot create error: ' . $job['result']['message']);
+        }
+        $this->getLogger()->info('Source project snapshot created');
     }
 }
