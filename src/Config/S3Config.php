@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Keboola\BackupProject\Config;
 
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use InvalidArgumentException;
 
 class S3Config extends Config
 {
@@ -15,7 +15,7 @@ class S3Config extends Config
 
     public function getS3path(): string
     {
-        return $this->getValue(['parameters', 's3path'], '/');
+        return rtrim($this->getValue(['parameters', 's3path'], '/'), '/') . '/';
     }
 
     public function getRegion(): string
@@ -32,7 +32,7 @@ class S3Config extends Config
     {
         try {
             return $this->getValue(['parameters', '#awsSecretAccessKey']);
-        } catch (InvalidConfigurationException $e) {
+        } catch (InvalidArgumentException $e) {
             return $this->getValue(['parameters', 'awsSecretAccessKey']);
         }
     }

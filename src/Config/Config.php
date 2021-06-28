@@ -33,6 +33,6 @@ class Config extends BaseConfig
 
     public function getOnlyStructure(): bool
     {
-        return $this->getValue(['parameters', 'onlyStructure']);
+        return $this->getValue(['parameters', 'onlyStructure'], false);
     }
 }
