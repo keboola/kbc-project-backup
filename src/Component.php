@@ -22,15 +22,15 @@ class Component extends BaseComponent
 
     protected function run(): void
     {
-        $backendFactory = new BackendStorageFactory($this->getConfig());
-        $backendStorage = $backendFactory->getBackendStorage();
-
         $sapiClient = new StorageClient([
             'url' => $this->getConfig()->getKbcUrl(),
             'token' => $this->getConfig()->getKbcToken(),
         ]);
 
         $syrupClient = $this->createSyrupClientFromStorageClient($sapiClient);
+
+        $backendFactory = new BackendStorageFactory($this->getConfig());
+        $backendStorage = $backendFactory->getBackendStorage();
 
         $jobConfig = $backendStorage->getCommandConfig();
 
