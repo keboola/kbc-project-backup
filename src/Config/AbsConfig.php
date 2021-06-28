@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Keboola\BackupProject\Config;
 
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class AbsConfig extends Config
 {
     public function getRegion(): string
     {
-        return $this->getValue(['parameters', 'region']);
+        return $this->getValue(['parameters', 'absRegion']);
     }
 
     public function getContainer(): string
