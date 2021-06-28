@@ -54,7 +54,7 @@ class AbsConfigTest extends TestCase
                 'accountName' => 'test-accountName',
                 '#accountKey' => 'test-accountKey',
                 'onlyStructure' => false,
-            ]
+            ],
         ];
 
         yield 'minimal-config' => [
@@ -74,7 +74,7 @@ class AbsConfigTest extends TestCase
                 'accountName' => 'test-accountName',
                 '#accountKey' => 'test-accountKey',
                 'onlyStructure' => false,
-            ]
+            ],
         ];
     }
 
@@ -89,7 +89,7 @@ class AbsConfigTest extends TestCase
                     '#accountKey' => 'test-accountKey',
                 ],
             ],
-            'Missing required parameter "absRegion".'
+            'Missing required parameter "absRegion".',
         ];
 
         yield 'missing-container' => [
@@ -101,7 +101,7 @@ class AbsConfigTest extends TestCase
                     '#accountKey' => 'test-accountKey',
                 ],
             ],
-            'Missing required parameter "container".'
+            'Missing required parameter "container".',
         ];
 
         yield 'missing-accountName' => [
@@ -113,7 +113,7 @@ class AbsConfigTest extends TestCase
                     '#accountKey' => 'test-accountKey',
                 ],
             ],
-            'Missing required parameter "accountName".'
+            'Missing required parameter "accountName".',
         ];
 
         yield 'missing-accountKey' => [
@@ -125,7 +125,7 @@ class AbsConfigTest extends TestCase
                     'accountName' => 'test-accountName',
                 ],
             ],
-            'Missing required parameter "#accountKey".'
+            'Missing required parameter "#accountKey".',
         ];
     }
 }

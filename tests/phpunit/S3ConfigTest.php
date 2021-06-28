@@ -56,7 +56,7 @@ class S3ConfigTest extends TestCase
                 'awsAccessKeyId' => 'test-awsAccessKeyId',
                 '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 'onlyStructure' => false,
-            ]
+            ],
         ];
 
         yield 'minimal-config' => [
@@ -77,7 +77,7 @@ class S3ConfigTest extends TestCase
                 'awsAccessKeyId' => 'test-awsAccessKeyId',
                 '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 'onlyStructure' => false,
-            ]
+            ],
         ];
     }
 
@@ -92,7 +92,7 @@ class S3ConfigTest extends TestCase
                     '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 ],
             ],
-            'Missing required parameter "s3bucket".'
+            'Missing required parameter "s3bucket".',
         ];
 
         yield 'missing-s3path' => [
@@ -104,7 +104,7 @@ class S3ConfigTest extends TestCase
                     '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 ],
             ],
-            'Missing required parameter "s3path".'
+            'Missing required parameter "s3path".',
         ];
 
         yield 'missing-s3region' => [
@@ -116,7 +116,7 @@ class S3ConfigTest extends TestCase
                     '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 ],
             ],
-            'Missing required parameter "s3region".'
+            'Missing required parameter "s3region".',
         ];
 
         yield 'missing-awsAccessKeyId' => [
@@ -128,7 +128,7 @@ class S3ConfigTest extends TestCase
                     '#awsSecretAccessKey' => 'test-awsSecretAccessKey',
                 ],
             ],
-            'Missing required parameter "awsAccessKeyId".'
+            'Missing required parameter "awsAccessKeyId".',
         ];
 
         yield 'missing-awsSecretAccessKey' => [
@@ -140,7 +140,7 @@ class S3ConfigTest extends TestCase
                     'awsAccessKeyId' => 'test-awsAccessKeyId',
                 ],
             ],
-            'Missing required parameter "#awsSecretAccessKey".'
+            'Missing required parameter "#awsSecretAccessKey".',
         ];
     }
 }
