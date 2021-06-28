@@ -9,6 +9,10 @@ use Keboola\Component\Config\BaseConfig;
 
 class Config extends BaseConfig
 {
+    public const STORAGE_BACKEND_S3 = 's3';
+
+    public const STORAGE_BACKEND_ABS = 'abs';
+
     public function getKbcUrl(): string
     {
         $url = getenv('KBC_URL');

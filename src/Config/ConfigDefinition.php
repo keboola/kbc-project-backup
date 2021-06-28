@@ -17,7 +17,10 @@ class ConfigDefinition extends BaseConfigDefinition
         $parametersNode
             ->ignoreExtraKeys(false)
             ->children()
-                ->scalarNode('storageBackendType')->isRequired()->end()
+                ->scalarNode('storageBackendType')
+                    ->defaultValue(Config::STORAGE_BACKEND_S3)
+                    ->isRequired()
+                ->end()
             ->end()
         ;
         // @formatter:on

@@ -11,8 +11,6 @@ use Keboola\BackupProject\Config\S3Config;
 
 class AbsBackendStorage extends BackendStorage
 {
-    private const STORAGE_BACKEND = 'abs';
-
     protected function buildConfig(array $config): Config
     {
         return new AbsConfig($config);
@@ -25,13 +23,14 @@ class AbsBackendStorage extends BackendStorage
         }
 
         return [
-            'backupId' => '',
             'accountName' => $this->config->getAccountName(),
             '#accountKey' => $this->config->getAccountKey(),
             'region' => $this->config->getRegion(),
             'backupPath' => $this->config->getContainer(),
+
+            'backupId' => '',
             'exportStructureOnly' => $this->config->getOnlyStructure(),
-            'storageBackendType' => self::STORAGE_BACKEND,
+            'storageBackendType' => Config::STORAGE_BACKEND_ABS,
             'includeVersions' => true,
         ];
     }

@@ -37,7 +37,7 @@ class Component extends BaseComponent
                 'configData' => [
                     'parameters' => $jobConfig,
                 ],
-                'tag' => 'TEST-COM-882-2',
+                'tag' => 'TEST-COM-882-3',
             ]
         );
         if ($job['status'] !== 'success') {
@@ -57,9 +57,9 @@ class Component extends BaseComponent
     {
         $storageBackendType = $this->getRawConfig()['parameters']['storageBackendType'];
         switch ($storageBackendType) {
-            case 's3':
+            case Config::STORAGE_BACKEND_S3:
                 return S3Config::class;
-            case 'abs':
+            case Config::STORAGE_BACKEND_ABS:
                 return AbsConfig::class;
             default:
                 throw new UserException(sprintf(

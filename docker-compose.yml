@@ -13,7 +13,7 @@ services:
       - AWS_REGION
       - AWS_S3_PATH
 
-  tests:
+  dev:
     <<: *app
     volumes:
       - ./data:/data
