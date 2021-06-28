@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Keboola\BackupProject\BackendStorage;
+namespace Keboola\BackupProject\BackupConfig;
 
 use Keboola\BackupProject\Config\AbsConfig;
 use Keboola\BackupProject\Config\Config;
 use Keboola\BackupProject\Config\S3Config;
 
-class BackendStorageFactory
+class BackupConfigFactory
 {
     private Config $config;
 
@@ -17,13 +17,13 @@ class BackendStorageFactory
         $this->config = $config;
     }
 
-    public function getBackendStorage(): BackendStorage
+    public function getBackupConfig(): BackupConfig
     {
         switch (get_class($this->config)) {
             case S3Config::class:
-                return new S3BackendStorage($this->config);
+                return new S3BackupConfig($this->config);
             case AbsConfig::class:
-                return new AbsBackendStorage($this->config);
+                return new AbsBackupConfig($this->config);
             default:
                 throw new \Exception('Unknown storage backend type.');
         }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Keboola\BackupProject;
 
 use Exception;
-use Keboola\BackupProject\BackendStorage\BackendStorageFactory;
+use Keboola\BackupProject\BackupConfig\BackupConfigFactory;
 use Keboola\BackupProject\Config\AbsConfig;
 use Keboola\BackupProject\Config\Config;
 use Keboola\BackupProject\Config\ConfigDefinition;
@@ -29,8 +29,8 @@ class Component extends BaseComponent
 
         $syrupClient = $this->createSyrupClientFromStorageClient($sapiClient);
 
-        $backendFactory = new BackendStorageFactory($this->getConfig());
-        $backendStorage = $backendFactory->getBackendStorage();
+        $backendFactory = new BackupConfigFactory($this->getConfig());
+        $backendStorage = $backendFactory->getBackupConfig();
 
         $jobConfig = $backendStorage->getCommandConfig();
 
