@@ -41,3 +41,7 @@ docker-compose run app
 docker-compose run tests
 
 ```
+
+## License
+
+MIT licensed, see [LICENSE](./LICENSE) file.
